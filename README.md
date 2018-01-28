@@ -1,2 +1,3 @@
-# haxe-telnet
-Haxe Telnet (Client &amp; Server) 
+# haxe-easyNet
+
+A simple network library for Haxe.

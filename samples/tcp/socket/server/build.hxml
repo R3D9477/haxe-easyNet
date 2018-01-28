@@ -1,0 +1,5 @@
+-main Main
+-cp Source
+-cp ../../../../easyNet
+
+-neko Bin/Main.n

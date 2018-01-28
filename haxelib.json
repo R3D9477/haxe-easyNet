@@ -1,0 +1,29 @@
+{
+	"name": "easyNet",
+	"url": "https://github.com/r3d9u11/haxe-easyNet",
+	
+	"classPath": "easyNet",
+	
+	"license": "MIT",
+	"version": "1.0.0",
+	"contributors": ["Eugene"],
+	
+	"description": "",
+	"releasenote": "see CHANGELOG.md",
+	
+	"dependencies": {
+	
+	},
+	
+	"tags": [
+		"haxe",
+		"network",
+		"network-stream",
+		"tcp",
+		"tcp-client",
+		"tcp-server",
+		"telnet",
+		"telnet-client",
+		"telnet-server"
+	]
+}
