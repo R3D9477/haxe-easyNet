@@ -20,6 +20,7 @@
 		"network",
 		"network-stream",
 		"tcp",
+		"socket",
 		"tcp-client",
 		"tcp-server",
 		"telnet",
