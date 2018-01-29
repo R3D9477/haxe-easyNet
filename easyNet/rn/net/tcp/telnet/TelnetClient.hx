@@ -122,12 +122,12 @@ class TelnetClient extends TcpClient implements ITcpClient {
 						if (readline && (input == 0 || input == 10 || input == 13))
 							return sb;
 						
-						//if (input != -1)
+						if (input != -1)
 							sb.addByte(input);
 				}
 			}
 			
-			Sys.sleep(.1);
+			Sys.sleep(.01);
 		}
 		while (stream != null ? stream.dataAvailable : false);
 
