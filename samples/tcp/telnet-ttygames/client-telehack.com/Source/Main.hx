@@ -9,7 +9,7 @@ class Main {
 		client.telnetCheckingProc = null;
 		
 		if (client.connect(new Host("telehack.com"), 23)) {
-			Sys.print(client.readText());
+			Sys.sleep(.5);
 			Sys.print(client.readText());
 
 			while (client.connected) {
