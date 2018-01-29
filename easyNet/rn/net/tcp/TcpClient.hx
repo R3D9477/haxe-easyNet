@@ -70,7 +70,7 @@ class TcpClient implements ITcpClient {
 		var data:Bytes;
 
 		while ((data = _readData(readLine)).length < 1)
-			Sys.sleep(.01);
+			Sys.sleep(.1);
 		
 		return data;
 	}

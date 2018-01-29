@@ -13,8 +13,15 @@ class Main {
 			Sys.print(client.readText());
 
 			while (client.connected) {
-				client.sendByte(Sys.getChar(false));
-				Sys.print(client.readText(true, true));
+				var cmdBuff = Sys.stdin().readLine() + String.fromCharCode(13);
+
+				for (i in 0...cmdBuff.length) {
+					client.sendByte(cmdBuff.charCodeAt(i));
+					Sys.sleep(.1);
+				}
+				
+				Sys.sleep(.5);
+				Sys.print(client.readText().substring(cmdBuff.length));
 			}
 		}
 		else
