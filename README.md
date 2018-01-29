@@ -2,6 +2,9 @@
 
 A simple network library for Haxe.
 
+## Installation:
+Via [haxelib](https://lib.haxe.org/): `haxelib git easyNet https://github.com/r3d9u11/haxe-easyNet`
+
 ## Currently provides:
 * Data streaming
   * [NetworkStream](../../wiki/rn.net.io.NetworkStream#networkstream)
