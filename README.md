@@ -22,4 +22,10 @@ Via [haxelib](https://lib.haxe.org/): `haxelib git easyNet https://github.com/r3
 * Telnet [Client](samples/tcp/telnet/client/Source/Main.hx#L1)/[Server](samples/tcp/telnet/server/Source/Main.hx#L1) (multithreaded) via [TelnetClient](../../wiki/rn.net.tcp.telnet.TelnetClient#telnetclient)/[TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver)
   * [Client](samples/tcp/telnet-ttygames/client-telehack.com/Source/Main.hx#L1) for online game [Telehack.com](http://telehack.wikia.com/wiki/Telehack_Wiki)
 
+## Tested with:
+* Haxe 3.4.4
+* Neko 2.1.0
+* HXCPP 3.4.188
+* Linux Mint 18.3 x64
+
 See [wiki](../../wiki) for more information!
