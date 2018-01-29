@@ -1,4 +1,4 @@
-# haxe-easyNet
+# EasyNet
 
 Library for easy and convenient working with network.
 
