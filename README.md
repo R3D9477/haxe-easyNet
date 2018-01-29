@@ -20,6 +20,6 @@ Via [haxelib](https://lib.haxe.org/): `haxelib git easyNet https://github.com/r3
 * TCP [Client](samples/tcp/socket/client/Source/Main.hx#L1)/[Server](samples/tcp/socket/server/Source/Main.hx#L1) (one thread) via [TcpSocket](../../wiki/rn.net.tcp.TcpSocket#tcpsocket)
 * TCP [Client](samples/tcp/tcpclient/client/Source/Main.hx#L1)/[Server](samples/tcp/tcpclient/server/Source/Main.hx#L1) (multithreaded) via [TcpClient](../../wiki/rn.net.tcp.TcpClient#tcpclient)/[TcpServer](../../wiki/rn.net.tcp.TcpServer#tcpserver)
 * Telnet [Client](samples/tcp/telnet/client/Source/Main.hx#L1)/[Server](samples/tcp/telnet/server/Source/Main.hx#L1) (multithreaded) via [TelnetClient](../../wiki/rn.net.tcp.telnet.TelnetClient#telnetclient)/[TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver)
-  * [Telnet client](samples/tcp/telnet-ttygames/client-telehack.com/Source/Main.hx#L1) for online game [Telehack.com](http://telehack.wikia.com/wiki/Telehack_Wiki)
+  * Telnet [Client](samples/tcp/telnet-ttygames/client-telehack.com/Source/Main.hx#L1) for online game [Telehack.com](http://telehack.wikia.com/wiki/Telehack_Wiki)
 
 See [wiki](../../wiki) for more information!
