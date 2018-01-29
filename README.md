@@ -14,4 +14,4 @@ A simple network library for Haxe.
   * [TelnetClient](wiki/rn.net.tcp.telnet.TelnetClient#telnetclient)
   * [TelnetServer](wiki/rn.net.tcp.telnet.TelnetServer#telnetserver)
 <br/>
-See [wiki](wiki) for more information!
+See [wiki](wiki/) for more information!
