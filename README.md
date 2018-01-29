@@ -2,6 +2,7 @@
 
 A simple network library for Haxe.
 <br/>
+<br/>
 Currently provides:
 * Data streaming
   * NetworkStream
@@ -12,5 +13,6 @@ Currently provides:
 * Telnet connection (over TCP)
   * TelnetClient
   * TelnetServer
+<br/>
 <br/>
 See [wiki](wiki) for more information!
