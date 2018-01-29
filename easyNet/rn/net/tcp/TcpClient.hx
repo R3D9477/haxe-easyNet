@@ -25,6 +25,18 @@ class TcpClient implements ITcpClient {
 	
 	//------------------------------------------------------------------------------------------
 	
+	public function sendByte (data:Int) {
+		if (connected)
+			try {
+				return tcpSocket.dataStream.writeByte(data);
+			}
+			catch (e:Dynamic) {
+				disconnect();
+			}
+		
+		return false;
+	}
+
 	public function sendData (data:Bytes) {
 		if (connected)
 			try {

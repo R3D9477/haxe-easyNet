@@ -40,7 +40,7 @@ class TelnetClient extends TcpClient implements ITcpClient {
 
 	public dynamic function telnetCheckingProc () {
 		if (connected) {
-			Sys.sleep(.1);
+			Sys.sleep(.5);
 			var prompt = readText().rtrim();
 			
 			if (prompt.length > 0)
@@ -57,10 +57,10 @@ class TelnetClient extends TcpClient implements ITcpClient {
 		
 		if (result)
 			result = telnetCheckingProc != null ? telnetCheckingProc() : true;
-
+		
 		if (!result)
 			disconnect();
-
+		
 		return result;
 	}
 
@@ -80,8 +80,10 @@ class TelnetClient extends TcpClient implements ITcpClient {
 
 	//------------------------------------------------------------------------------------------
 
-	override public function sendText (text:String)
-		return text != null ? sendData(Bytes.ofString(text)) : false; // do replace("\0xFF", "\0xFF\0xFF")) before writing to stream
+	override public function sendText (text:String) {
+		var char = String.fromCharCode(0xFF);
+		return text != null ? sendData(Bytes.ofString(text.replace(char, char+char))) : false;
+	}
 
 	//------------------------------------------------------------------------------------------
 
@@ -120,7 +122,8 @@ class TelnetClient extends TcpClient implements ITcpClient {
 						if (readline && (input == 0 || input == 10 || input == 13))
 							return sb;
 						
-						sb.addByte(input);
+						if (input != -1)
+							sb.addByte(input);
 				}
 			}
 			
