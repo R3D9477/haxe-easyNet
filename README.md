@@ -3,7 +3,7 @@
 A simple network library for Haxe.
 <br/>
 <br/>
-Currently provides:
+## Currently provides:
 * Data streaming
   * [NetworkStream](wiki/rn.net.io.NetworkStream#networkstream)
 * TCP connection
