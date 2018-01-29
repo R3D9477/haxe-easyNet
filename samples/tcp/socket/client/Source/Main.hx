@@ -21,14 +21,6 @@ class Main {
 		else
 			trace("can't connect to server!");
 		
-		/*var isConnected:Bool;
-		do {
-			isConnected = client.connected;
-			trace('client connected: $isConnected');
-			Sys.sleep(.5);
-		}
-		while (isConnected);*/
-		
 		Sys.sleep(1.5);
 		client.close();
 		trace('client connected: ${client.connected}');

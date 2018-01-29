@@ -21,10 +21,6 @@ class Main {
 
 			client.dataStream.writeByte(2);
 
-			/*Sys.sleep(1.5);
-			client.close();
-			trace('client connected: ${client.connected}');*/
-
 			var isConnected:Bool;
 			do {
 				isConnected = client.connected;
