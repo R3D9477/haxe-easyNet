@@ -1,6 +1,6 @@
 # haxe-easyNet
 
-A simple network library for Haxe.
+Library for easy and convenient working with network.
 
 ## Installation:
 Via [haxelib](https://lib.haxe.org/): `haxelib git easyNet https://github.com/r3d9u11/haxe-easyNet`
