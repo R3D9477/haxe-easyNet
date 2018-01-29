@@ -2,6 +2,7 @@
 
 A simple network library for Haxe.
 <br/>
+Currently provides:
 * Data streaming
   * NetworkStream
 * TCP connection
