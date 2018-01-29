@@ -5,14 +5,13 @@ A simple network library for Haxe.
 <br/>
 Currently provides:
 * Data streaming
-  * NetworkStream
+  * [NetworkStream](wiki/rn.net.io.NetworkStream)
 * TCP connection
-  * TcpSocket
-  * TcpClient
-  * TcpServer
+  * [TcpSocket](wiki/rn.net.tcp.TcpSocket)
+  * [TcpClient](wiki/rn.net.tcp.TcpClient)
+  * [TcpServer](wiki/rn.net.tcp.TcpServer)
 * Telnet connection (over TCP)
-  * TelnetClient
-  * TelnetServer
-<br/>
+  * [TelnetClient](wiki/rn.net.tcp.telnet.TelnetClient)
+  * [TelnetServer](wiki/rn.net.tcp.telnet.TelnetServer)
 <br/>
 See [wiki](wiki) for more information!
