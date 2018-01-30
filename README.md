@@ -3,7 +3,8 @@
 Library for easy and convenient working with network *(alpha)*.
 
 ## Installation:
-Via [haxelib](https://lib.haxe.org/): `haxelib git easyNet https://github.com/r3d9u11/haxe-easyNet`
+* Via [haxelib](https://lib.haxe.org/): `haxelib git easyNet https://github.com/r3d9u11/haxe-easyNet`
+* Via git: `git clone https://github.com/r3d9u11/haxe-easyNet`
 
 ## Currently provides:
 * Data streaming
