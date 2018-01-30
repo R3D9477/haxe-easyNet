@@ -11,7 +11,7 @@ import rn.net.io.NetworkStream;
 using StringTools;
 
 class TelnetClient extends TcpClient implements ITcpClient {
-	public var telnetControlChar:String = ">";
+	public var telnetControlChar:String;
 
 	//------------------------------------------------------------------------------------------
 
@@ -41,10 +41,7 @@ class TelnetClient extends TcpClient implements ITcpClient {
 	public dynamic function telnetCheckingProc () {
 		if (connected) {
 			Sys.sleep(.5);
-			var prompt = readText().rtrim();
-			
-			if (prompt.length > 0)
-				return prompt.indexOf(telnetControlChar) >= 0;
+			return telnetControlChar != null ? readText().rtrim().indexOf(telnetControlChar) >= 0 : true;
 		}
 		
 		return false;

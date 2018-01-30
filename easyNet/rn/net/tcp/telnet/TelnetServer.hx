@@ -5,7 +5,7 @@ import rn.net.tcp.TcpServer;
 using StringTools;
 
 class TelnetServer extends TcpServer {
-	public var telnetControlChar:String = ">";
+	public var telnetWelcome:String;
 
 	//------------------------------------------------------------------------------------------
 	
@@ -40,9 +40,7 @@ class TelnetServer extends TcpServer {
 		}
 		
 		if (result) {
-			client.sendTextLine(telnetControlChar);
-			Sys.sleep(.1);
-
+			client.sendText(telnetWelcome);
 			onClientAuthSucceed(cast(client, TelnetClient));
 		}
 		else
@@ -50,9 +48,4 @@ class TelnetServer extends TcpServer {
 		
 		return result;
 	}
-
-	//------------------------------------------------------------------------------------------
-
-	override public function sendText (clientGuid:String, text:String)
-		return text != null ? super.sendText(clientGuid, text + telnetControlChar) : false;
 }

@@ -6,7 +6,6 @@ import rn.net.tcp.telnet.TelnetClient;
 class Main {
 	public static function main () {
 		var client = new TelnetClient ();
-		client.telnetCheckingProc = null;
 		
 		if (client.connect(new Host("telehack.com"), 23)) {
 			Sys.sleep(.5);
