@@ -12,6 +12,8 @@ using StringTools;
 
 class TelnetClient extends TcpClient implements ITcpClient {
 	public var telnetControlChar:String;
+	public var telnetSendWaiting:Float = .1;
+	public var telnetEndLineChar:String = String.fromCharCode(13);
 
 	//------------------------------------------------------------------------------------------
 
@@ -21,27 +23,29 @@ class TelnetClient extends TcpClient implements ITcpClient {
 	//------------------------------------------------------------------------------------------
 
 	public dynamic function telnetLoginProc () {
-		if (connected) {
+		var result = true;
+
+		if (telnetLogin != null ? telnetLogin.length > 0 : false) {
 			Sys.sleep(.05);
 			_readData(false);
-			
 			Sys.sleep(.05);
-			if (sendTextLine(telnetLogin != null ? telnetLogin : "")) {
-				Sys.sleep(.05);
-				_readData(false);
-				
-				Sys.sleep(.05);
-				return sendTextLine(telnetPassword != null ? telnetPassword : "");
-			}
+			result = sendTextLine(telnetLogin);
 		}
-		
-		return false;
+
+		if (result && (telnetPassword != null ? telnetPassword.length > 0 : false)) {
+			Sys.sleep(.05);
+			_readData(false);
+			Sys.sleep(.05);
+			result = sendTextLine(telnetPassword);
+		}
+
+		return result;
 	}
 
 	public dynamic function telnetCheckingProc () {
 		if (connected) {
 			Sys.sleep(.5);
-			return telnetControlChar != null ? readText().rtrim().indexOf(telnetControlChar) >= 0 : true;
+			return telnetControlChar != null ? readText().indexOf(telnetControlChar) >= 0 : true;
 		}
 		
 		return false;
@@ -57,7 +61,7 @@ class TelnetClient extends TcpClient implements ITcpClient {
 		
 		if (!result)
 			disconnect();
-		
+		trace(result);
 		return result;
 	}
 
@@ -77,10 +81,28 @@ class TelnetClient extends TcpClient implements ITcpClient {
 
 	//------------------------------------------------------------------------------------------
 
+	override public function sendData (data:Bytes) {
+		if (connected)
+			try {
+				for (i in 0...data.length) {
+					sendByte(data.get(i));
+					Sys.sleep(telnetSendWaiting);
+				}
+			}
+			catch (e:Dynamic) {
+				disconnect();
+			}
+		
+		return false;
+	}
+
 	override public function sendText (text:String) {
 		var char = String.fromCharCode(0xFF);
 		return text != null ? sendData(Bytes.ofString(text.replace(char, char+char))) : false;
 	}
+
+	override public function sendTextLine (text:String)
+		return text != null ? sendText(text + telnetEndLineChar) : false;
 
 	//------------------------------------------------------------------------------------------
 

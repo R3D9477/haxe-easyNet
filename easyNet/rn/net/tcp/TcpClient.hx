@@ -49,11 +49,9 @@ class TcpClient implements ITcpClient {
 		return false;
 	}
 
-	public function sendText (text:String)
-		return text != null ? sendData(Bytes.ofString(text)) : false;
+	public function sendText (text:String) return text != null ? sendData(Bytes.ofString(text)) : false;
 	
-	public function sendTextLine (text:String)
-		return text != null ? sendText(text + "\n") : false;
+	public function sendTextLine (text:String) return text != null ? sendText(text + "\n") : false;
 
 	//------------------------------------------------------------------------------------------
 	
