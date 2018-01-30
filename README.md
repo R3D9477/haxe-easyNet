@@ -1,6 +1,6 @@
 # EasyNet
 
-Library for easy and convenient working with network.
+Library for easy and convenient working with network *(alpha)*.
 
 ## Installation:
 Via [haxelib](https://lib.haxe.org/): `haxelib git easyNet https://github.com/r3d9u11/haxe-easyNet`
@@ -15,6 +15,10 @@ Via [haxelib](https://lib.haxe.org/): `haxelib git easyNet https://github.com/r3
 * Telnet connection (over TCP)
   * [TelnetClient](../../wiki/rn.net.tcp.telnet.TelnetClient#telnetclient)
   * [TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver)
+
+## Plans:
+* Add UDP Client/Server
+* Add FTP Client
 
 ## Samples collection:
 * TCP [Client](samples/tcp/socket/client/Source/Main.hx#L1)/[Server](samples/tcp/socket/server/Source/Main.hx#L1) (one thread) via [TcpSocket](../../wiki/rn.net.tcp.TcpSocket#tcpsocket)
