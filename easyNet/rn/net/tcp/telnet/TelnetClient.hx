@@ -13,6 +13,7 @@ using StringTools;
 class TelnetClient extends TcpClient implements ITcpClient {
 	public var telnetControlChar:String;
 	public var telnetSendWaiting:Float = .1;
+	public var telnetResponseWaiting:Float = .5;
 	public var telnetEndLineChar:String = String.fromCharCode(13);
 
 	//------------------------------------------------------------------------------------------
@@ -61,7 +62,7 @@ class TelnetClient extends TcpClient implements ITcpClient {
 		
 		if (!result)
 			disconnect();
-		trace(result);
+		
 		return result;
 	}
 
@@ -151,5 +152,15 @@ class TelnetClient extends TcpClient implements ITcpClient {
 		while (stream != null ? stream.dataAvailable : false);
 
 		return sb;
+	}
+
+	//------------------------------------------------------------------------------------------
+
+	public function telnetResponse (?request:String) {
+		if (request != null)
+			sendTextLine(request);
+		
+		Sys.sleep(telnetResponseWaiting);
+		return readText();
 	}
 }

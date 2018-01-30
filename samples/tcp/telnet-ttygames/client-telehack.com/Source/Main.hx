@@ -8,14 +8,11 @@ class Main {
 		var client = new TelnetClient ();
 		
 		if (client.connect(new Host("telehack.com"), 23)) {
-			Sys.sleep(.5);
-			Sys.print(client.readText());
+			Sys.print(client.telnetResponse());
 			
 			while (client.connected) {
 				var cmdBuff = Sys.stdin().readLine();
-				client.sendTextLine(cmdBuff);
-				Sys.sleep(.5);
-				Sys.print(client.readText().substring(cmdBuff.length));
+				Sys.print(client.telnetResponse(cmdBuff).substring(cmdBuff.length));
 			}
 		}
 		else
