@@ -161,6 +161,6 @@ class TelnetClient extends TcpClient implements ITcpClient {
 			sendTextLine(request);
 		
 		Sys.sleep(telnetResponseWaiting);
-		return readText();
+		return readText(false);
 	}
 }
