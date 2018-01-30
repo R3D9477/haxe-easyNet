@@ -13,9 +13,9 @@ Library for easy and convenient working with network *(alpha)*.
   * [TcpSocket](../../wiki/rn.net.tcp.TcpSocket#tcpsocket)
   * [TcpClient](../../wiki/rn.net.tcp.TcpClient#tcpclient)
   * [TcpServer](../../wiki/rn.net.tcp.TcpServer#tcpserver)
-* Telnet connection (over TCP)
-  * [TelnetClient](../../wiki/rn.net.tcp.telnet.TelnetClient#telnetclient)
-  * [TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver)
+  * Telnet over TCP
+    * [TelnetClient](../../wiki/rn.net.tcp.telnet.TelnetClient#telnetclient)
+    * [TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver)
 
 ## Plans:
 * Add UDP Client/Server
