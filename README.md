@@ -18,6 +18,7 @@ Library for easy and convenient working with network *(alpha)*.
     * [TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver) (multithreaded)
 
 ## Plans:
+* Add more targets (currently supported Neko & C++)
 * Add UDP Client/Server
 * Add FTP Client
 
