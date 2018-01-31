@@ -167,8 +167,10 @@ class TcpServer {
 		if (clientThreads.exists(clientGuid))
 			clientThreads.remove(clientGuid);
 
-		if (clients.exists(clientGuid))
+		if (clients.exists(clientGuid)) {
+			//clients[clientGuid].disconnect();
 			clients.remove(clientGuid);
+		}
 
 		//clientsLocker.release();
 

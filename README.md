@@ -12,10 +12,10 @@ Library for easy and convenient working with network *(alpha)*.
 * TCP connection
   * [TcpSocket](../../wiki/rn.net.tcp.TcpSocket#tcpsocket)
   * [TcpClient](../../wiki/rn.net.tcp.TcpClient#tcpclient)
-  * [TcpServer](../../wiki/rn.net.tcp.TcpServer#tcpserver)
+  * [TcpServer](../../wiki/rn.net.tcp.TcpServer#tcpserver) (multithreaded)
   * Telnet over TCP
     * [TelnetClient](../../wiki/rn.net.tcp.telnet.TelnetClient#telnetclient)
-    * [TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver)
+    * [TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver) (multithreaded)
 
 ## Plans:
 * Add UDP Client/Server
