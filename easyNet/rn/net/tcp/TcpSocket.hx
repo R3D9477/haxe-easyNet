@@ -75,7 +75,7 @@ class TcpSocket {
 				close();
 				result = false;
 			}
-
+		
 		return result;
 	}
 
@@ -118,7 +118,5 @@ class TcpSocket {
 
 		if (dataStream != null)
 			dataStream.close();
-
-		dataStream = null;
 	}
 }

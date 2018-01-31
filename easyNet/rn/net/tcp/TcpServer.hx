@@ -59,7 +59,7 @@ class TcpServer {
 	
 	function clientsAutocheckingProc () {
 		while (started) {
-			//clientsLocker.acquire();
+			clientsLocker.acquire();
 			
 			for (clientGuid in clients.keys())
 				if (!clients[clientGuid].connected) {
@@ -67,7 +67,7 @@ class TcpServer {
 					break;
 				}
 			
-			//clientsLocker.release();
+			clientsLocker.release();
 			
 			Sys.sleep(.1);
 		}
@@ -75,7 +75,10 @@ class TcpServer {
 
 	function clientProc () {
 		var clientGuid:String = Thread.readMessage(true);
+
+		clientsLocker.acquire();
 		var tcpClient = clients.exists(clientGuid) ? clients[clientGuid] : null;
+		clientsLocker.release();
 
 		if (tcpClient != null)
 			while (tcpClient.connected) {
@@ -105,7 +108,7 @@ class TcpServer {
 				if (tcpClient != null)
 					if (tcpClient.connected) {
 						if (clientCheckingProc(tcpClient)) {
-							//clientsLocker.acquire();
+							clientsLocker.acquire();
 							
 							var clientGuid = DateTools.format(Date.now(), "%Y%m%d%H%M%S") + (Math.random() * Lambda.count(clients)) + Lambda.count(clients);
 							
@@ -114,7 +117,7 @@ class TcpServer {
 							var clientThread = Thread.create(clientProc);
 							clientThread.sendMessage(clientGuid);
 
-							//clientsLocker.release();
+							clientsLocker.release();
 
 							clientThreads.set(clientGuid, clientThread);
 
@@ -153,26 +156,26 @@ class TcpServer {
 	//------------------------------------------------------------------------------------------
 
 	public function disconnectAll () {
-		//clientsLocker.acquire();
+		clientsLocker.acquire();
 		
 		for (clientGuid in clients.keys())
 			disconnect(clientGuid);
 		
-		//clientsLocker.release();
+		clientsLocker.release();
 	}
 	
 	public function disconnect (clientGuid:String) {
-		//clientsLocker.acquire();
+		clientsLocker.acquire();
 
 		if (clientThreads.exists(clientGuid))
 			clientThreads.remove(clientGuid);
 
 		if (clients.exists(clientGuid)) {
-			//clients[clientGuid].disconnect();
+			clients[clientGuid].disconnect();
 			clients.remove(clientGuid);
 		}
 
-		//clientsLocker.release();
+		clientsLocker.release();
 
 		onClientDisconnect(clientGuid);
 	}
@@ -182,12 +185,12 @@ class TcpServer {
 	public function sendData (clientGuid:String, data:Bytes) {
 		var result = false;
 
-		//clientsLocker.acquire();
+		clientsLocker.acquire();
+		var client = clients.exists(clientGuid) ? clients[clientGuid] : null;
+		clientsLocker.release();
 
-		if (clients.exists(clientGuid))
-			result = clients[clientGuid].sendData(data);
-
-		//clientsLocker.release();
+		if (client != null)
+			result = client.sendData(data);
 
 		return result;
 	}
@@ -195,12 +198,12 @@ class TcpServer {
 	public function sendText (clientGuid:String, text:String) {
 		var result = false;
 
-		//clientsLocker.acquire();
+		clientsLocker.acquire();
+		var client = clients.exists(clientGuid) ? clients[clientGuid] : null;
+		clientsLocker.release();
 
-		if (clients.exists(clientGuid))
-			return clients[clientGuid].sendText(text);
-
-		//clientsLocker.release();
+		if (client != null)
+			result = client.sendText(text);
 
 		return result;
 	}

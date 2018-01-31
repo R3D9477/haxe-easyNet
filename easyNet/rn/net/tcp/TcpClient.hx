@@ -58,7 +58,7 @@ class TcpClient implements ITcpClient {
 	function _readData (readLine:Bool) {
 		var data = new BytesBuffer();
 		
-		while (tcpSocket.dataStream.dataAvailable)
+		while (tcpSocket.connected ? tcpSocket.dataStream.dataAvailable : false)
 			data.addByte(tcpSocket.dataStream.readByte());
 		
 		return data.getBytes();
