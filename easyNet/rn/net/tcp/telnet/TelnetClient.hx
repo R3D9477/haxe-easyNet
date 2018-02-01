@@ -12,8 +12,8 @@ using StringTools;
 
 class TelnetClient extends TcpClient implements ITcpClient {
 	public var telnetControlChar:String;
-	public var telnetSendWait:Float = .1;
-	public var telnetReadWait:Float = .1;
+	public var telnetSendWait:Float = .05;
+	public var telnetReadWait:Float = .05;
 	public var telnetResponseWaiting:Float = .5;
 	public var telnetEndLineChar:String = String.fromCharCode(13);
 
