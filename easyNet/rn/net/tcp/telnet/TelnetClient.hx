@@ -12,7 +12,8 @@ using StringTools;
 
 class TelnetClient extends TcpClient implements ITcpClient {
 	public var telnetControlChar:String;
-	public var telnetSendWaiting:Float = .1;
+	public var telnetSendWait:Float = .1;
+	public var telnetReadWait:Float = .1;
 	public var telnetResponseWaiting:Float = .5;
 	public var telnetEndLineChar:String = String.fromCharCode(13);
 
@@ -27,16 +28,12 @@ class TelnetClient extends TcpClient implements ITcpClient {
 		var result = true;
 
 		if (telnetLogin != null ? telnetLogin.length > 0 : false) {
-			Sys.sleep(.05);
 			_readData(false);
-			Sys.sleep(.05);
 			result = sendTextLine(telnetLogin);
 		}
 
 		if (result && (telnetPassword != null ? telnetPassword.length > 0 : false)) {
-			Sys.sleep(.05);
 			_readData(false);
-			Sys.sleep(.05);
 			result = sendTextLine(telnetPassword);
 		}
 
@@ -87,8 +84,10 @@ class TelnetClient extends TcpClient implements ITcpClient {
 			try {
 				for (i in 0...data.length) {
 					sendByte(data.get(i));
-					Sys.sleep(telnetSendWaiting);
+					Sys.sleep(telnetSendWait);
 				}
+
+				return true;
 			}
 			catch (e:Dynamic) {
 				disconnect();
@@ -107,8 +106,7 @@ class TelnetClient extends TcpClient implements ITcpClient {
 
 	//------------------------------------------------------------------------------------------
 
-	override function _readData (readLine:Bool)
-		return parseTelnet(tcpSocket.dataStream, new BytesBuffer(), readLine).getBytes();
+	override function _readData (readLine:Bool) return parseTelnet(tcpSocket.dataStream, new BytesBuffer(), readLine).getBytes();
 
 	function parseTelnet (stream:NetworkStream, sb:BytesBuffer, readline:Bool) {
 		do {
@@ -147,7 +145,7 @@ class TelnetClient extends TcpClient implements ITcpClient {
 				}
 			}
 			
-			Sys.sleep(.01);
+			Sys.sleep(telnetReadWait);
 		}
 		while (stream != null ? stream.dataAvailable : false);
 

@@ -77,7 +77,9 @@ class TcpServer {
 		var clientGuid:String = Thread.readMessage(true);
 
 		clientsLocker.acquire();
+		
 		var tcpClient = clients.exists(clientGuid) ? clients[clientGuid] : null;
+		
 		clientsLocker.release();
 
 		if (tcpClient != null)
@@ -186,11 +188,13 @@ class TcpServer {
 		var result = false;
 
 		clientsLocker.acquire();
-		var client = clients.exists(clientGuid) ? clients[clientGuid] : null;
+		
+		var tcpClient = clients.exists(clientGuid) ? clients[clientGuid] : null;
+		
 		clientsLocker.release();
 
-		if (client != null)
-			result = client.sendData(data);
+		if (tcpClient != null)
+			result = tcpClient.sendData(data);
 
 		return result;
 	}
@@ -199,11 +203,13 @@ class TcpServer {
 		var result = false;
 
 		clientsLocker.acquire();
-		var client = clients.exists(clientGuid) ? clients[clientGuid] : null;
+		
+		var tcpClient = clients.exists(clientGuid) ? clients[clientGuid] : null;
+		
 		clientsLocker.release();
 
-		if (client != null)
-			result = client.sendText(text);
+		if (tcpClient != null)
+			result = tcpClient.sendText(text);
 
 		return result;
 	}

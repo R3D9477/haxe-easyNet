@@ -113,9 +113,9 @@ class TcpSocket {
 	public function close () {
 		if (dataStream != null)
 			dataStream.close();
-
+		
 		if (socket != null)
-			socket.close();
+			try { socket.close(); } catch (e:Dynamic) { }
 		
 		socket = null;
 	}

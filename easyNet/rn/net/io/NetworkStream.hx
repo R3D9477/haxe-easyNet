@@ -48,11 +48,11 @@ class NetworkStream {
 		return dataAvailable ? try { inputBuffer.readByte(); } catch (e:Dynamic) { -1; } : -1;
 
 	public function writeByte (data:Int)
-		return if (canWrite && data != null) { try { outputStream.writeByte(data); true; } catch (e:Dynamic) { false; } } else false;
+		return if (canWrite && data != null) try { outputStream.writeByte(data); true; } catch (e:Dynamic) { false; } else false;
 
 	public function write (data:Bytes)
-		return if (canWrite && (data != null ? data.length > 0 : false)) { try { outputStream.write(data); true; } catch (e:Dynamic) { false; } } else false;
-
+		return if (canWrite && (data != null ? data.length > 0 : false)) try { outputStream.write(data); true; } catch (e:Dynamic) { false; } else false;
+	
 	//----------------------------------------------------------------------------------------------
 
 	public function close () {

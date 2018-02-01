@@ -73,6 +73,5 @@ class TcpClient implements ITcpClient {
 		return data;
 	}
 	
-	public function readText (notEmpty:Bool = true, readLine:Bool = false)
-		return readData(notEmpty, readLine).toString();
+	public function readText (notEmpty:Bool = true, readLine:Bool = false) return readData(notEmpty, readLine).toString();
 }

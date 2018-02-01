@@ -11,7 +11,6 @@ class Main {
 		server.onClientBeforeConnect = function (client:ITcpClient) trace ('client connected');
 		server.onClientAuthSucceed = function (client:ITcpClient) trace ('client authorized');
 		server.onClientAfterConnect = function (clientUuid:String) server.sendTextLine(clientUuid, "hello from server!");
-		
 		server.onClientText = function (clientUuid:String, text:String) trace ('client: $text');
 		
 		if (server.start(new Host("localhost"), 5000)) {

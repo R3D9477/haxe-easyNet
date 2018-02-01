@@ -7,6 +7,9 @@ class Main {
 	public static function main () {
 		var client = new TelnetClient ();
 		
+		client.telnetLogin = "test";
+		client.telnetPassword = "test";
+
 		if (client.connect(new Host("localhost"), 5000)) {
 			trace("connected to server!");
 			

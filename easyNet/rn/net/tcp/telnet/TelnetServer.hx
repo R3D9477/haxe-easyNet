@@ -5,10 +5,11 @@ import rn.net.tcp.TcpServer;
 using StringTools;
 
 class TelnetServer extends TcpServer {
-	public var telnetWelcome:String;
+	public var telnetLoginMessage = "login:";
+	public var telnetPasswMessage = "passw:";
 
 	//------------------------------------------------------------------------------------------
-	
+
 	public dynamic function telnetAuthProc (login:String, password:String) : Bool return true;
 
 	public dynamic function onClientAuthSucceed (client:TelnetClient) { }
@@ -29,20 +30,17 @@ class TelnetServer extends TcpServer {
 	function clientAuthProc (client:ITcpClient) {
 		var result = true;
 		
-		if (telnetAuthProc != null) {
-			client.sendTextLine("login:");
-			var login = client.readText().trim();
-			
-			client.sendTextLine("passw:");
-			var passw = client.readText().trim();
-			
-			result = telnetAuthProc(login, passw);
-		}
+		if (telnetAuthProc != null)
+			if (result = client.sendTextLine(telnetLoginMessage)) {
+				var login = client.readText().trim();
+				if (result = client.sendTextLine(telnetPasswMessage)) {
+					var passw = client.readText().trim();
+					result = telnetAuthProc(login, passw);
+				}
+			}
 		
-		if (result) {
-			client.sendText(telnetWelcome);
+		if (result)
 			onClientAuthSucceed(cast(client, TelnetClient));
-		}
 		else
 			onClientAuthFailed(cast(client, TelnetClient));
 		
