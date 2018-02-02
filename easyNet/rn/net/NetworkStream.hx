@@ -1,4 +1,4 @@
-package rn.net.io;
+package rn.net;
 
 import haxe.io.*;
 

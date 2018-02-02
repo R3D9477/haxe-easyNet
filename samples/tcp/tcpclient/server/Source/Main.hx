@@ -2,13 +2,13 @@ package;
 
 import sys.net.Host;
 import rn.net.tcp.TcpServer;
-import rn.net.tcp.ITcpClient;
+import rn.net.INetworkClient;
 
 class Main {
 	public static function main () {
 		var server = new TcpServer ();
 		
-		server.onClientBeforeConnect = function (client:ITcpClient) trace ('client connected');
+		server.onClientBeforeConnect = function (client:INetworkClient) trace ('client connected');
 		server.onClientAfterConnect = function (clientUuid:String) server.sendTextLine(clientUuid, "hello from server!");
 		server.onClientDisconnect = function (clientUuid:String) trace('client $clientUuid disconnected');
 		server.onClientText = function (clientUuid:String, text:String) trace ('client: $text');

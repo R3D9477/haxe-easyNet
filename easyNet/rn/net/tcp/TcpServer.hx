@@ -9,6 +9,7 @@ package rn.net.tcp;
 #end
 
 import haxe.io.Bytes;
+import rn.net.INetworkClient;
 
 class TcpServer {
 	var clientClass:Class<Dynamic>;
@@ -26,17 +27,17 @@ class TcpServer {
 
 	//------------------------------------------------------------------------------------------
 	
-	var clients:Map<String, ITcpClient>;
+	var clients:Map<String, INetworkClient>;
 	var clientThreads:Map<String, Thread>;
 	var clientsLocker:Mutex;
 	
 	//------------------------------------------------------------------------------------------
 	
-	public dynamic function onClientBeforeConnect (client:ITcpClient) { }
+	public dynamic function onClientBeforeConnect (client:INetworkClient) { }
 	public dynamic function onClientAfterConnect (clientGuid:String) { }
 	public dynamic function onClientDisconnect (clientGuid:String) { }
 
-	public dynamic function clientCheckingProc (client:ITcpClient) : Bool return true;
+	public dynamic function clientCheckingProc (client:INetworkClient) : Bool return true;
 
 	public dynamic function onClientData (clientGuid:String, data:haxe.io.Bytes) { }
 	public dynamic function onClientText (clientGuid:String, text:String) { }
@@ -51,7 +52,7 @@ class TcpServer {
 		clientCheckerThread = null;
 		clientsLocker = new Mutex();
 
-		clients = new Map<String, ITcpClient>();
+		clients = new Map<String, INetworkClient>();
 		clientThreads = new Map<String, Thread>();
 	}
 	
@@ -95,7 +96,7 @@ class TcpServer {
 
 	function listenderProc () {
 		while (tcpListener != null) {
-			var tcpClient:ITcpClient;
+			var tcpClient:INetworkClient;
 			
 			try {
 				tcpClient = Type.createInstance(clientClass, [tcpListener.accept(), tcpListener.inputBufferSize]);

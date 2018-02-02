@@ -1,6 +1,6 @@
-package rn.net.tcp;
+package rn.net;
 
-interface ITcpClient {
+interface INetworkClient {
 	public var connected (get, null) : Bool;
 
 	public function connect (host:sys.net.Host, port:Int) : Bool;

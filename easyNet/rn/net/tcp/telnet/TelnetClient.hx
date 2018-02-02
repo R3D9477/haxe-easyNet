@@ -5,12 +5,12 @@ import haxe.io.Bytes;
 import haxe.io.BytesBuffer;
 
 import rn.net.tcp.TcpClient;
-import rn.net.tcp.ITcpClient;
-import rn.net.io.NetworkStream;
+import rn.net.INetworkClient;
+import rn.net.NetworkStream;
 
 using StringTools;
 
-class TelnetClient extends TcpClient implements ITcpClient {
+class TelnetClient extends TcpClient implements INetworkClient {
 	public var telnetControlChar:String;
 	public var telnetSendWait:Float = .05;
 	public var telnetReadWait:Float = .05;

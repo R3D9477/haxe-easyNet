@@ -2,9 +2,7 @@ package rn.net.tcp;
 
 import sys.net.Host;
 import sys.net.Socket;
-import rn.net.io.NetworkStream;
-
-typedef EndPoint = { host:Host, port:Int }
+import rn.net.NetworkStream;
 
 class TcpSocket {
 	var socket:Socket;

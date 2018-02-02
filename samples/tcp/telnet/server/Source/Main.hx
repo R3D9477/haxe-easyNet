@@ -2,14 +2,14 @@ package;
 
 import sys.net.Host;
 import rn.net.tcp.telnet.TelnetServer;
-import rn.net.tcp.ITcpClient;
+import rn.net.INetworkClient;
 
 class Main {
 	public static function main () {
 		var server = new TelnetServer ();
 		
-		server.onClientBeforeConnect = function (client:ITcpClient) trace ('client connected');
-		server.onClientAuthSucceed = function (client:ITcpClient) trace ('client authorized');
+		server.onClientBeforeConnect = function (client:INetworkClient) trace ('client connected');
+		server.onClientAuthSucceed = function (client:INetworkClient) trace ('client authorized');
 		server.onClientAfterConnect = function (clientUuid:String) server.sendTextLine(clientUuid, "hello from server!");
 		server.onClientText = function (clientUuid:String, text:String) trace ('client: $text');
 		

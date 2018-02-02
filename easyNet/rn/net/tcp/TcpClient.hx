@@ -4,7 +4,7 @@ import sys.net.Host;
 import haxe.io.Bytes;
 import haxe.io.BytesBuffer;
 
-class TcpClient implements ITcpClient {
+class TcpClient implements rn.net.INetworkClient {
 	var tcpSocket:TcpSocket;
 	
 	public var connected (get, null) : Bool;

@@ -1,6 +1,7 @@
 package rn.net.tcp.telnet;
 
 import rn.net.tcp.TcpServer;
+import rn.net.INetworkClient;
 
 using StringTools;
 
@@ -27,7 +28,7 @@ class TelnetServer extends TcpServer {
 
 	//------------------------------------------------------------------------------------------
 
-	function clientAuthProc (client:ITcpClient) {
+	function clientAuthProc (client:INetworkClient) {
 		var result = true;
 		
 		if (telnetAuthProc != null)
