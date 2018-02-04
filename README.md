@@ -1,6 +1,6 @@
 # EasyNet
 
-Library for easy and convenient working with network *(alpha)*.
+Library for easy and convenient working with network.
 
 ## Installation:
 * via [haxelib](https://lib.haxe.org/)
