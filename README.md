@@ -26,7 +26,7 @@ Library for easy and convenient working with network *(alpha)*.
 ## Samples collection:
 * TCP [Client](samples/tcp/TcpSocket/client/Source/Main.hx#L1)/[Server](samples/tcp/TcpSocket/server/Source/Main.hx#L1) via [TcpSocket](../../wiki/rn.net.tcp.TcpSocket#tcpsocket)
 * TCP [Client](samples/tcp/TcpClient/client/Source/Main.hx#L1)/[Server](samples/tcp/TcpClient/server/Source/Main.hx#L1) via [TcpClient](../../wiki/rn.net.tcp.TcpClient#tcpclient)/[TcpServer](../../wiki/rn.net.tcp.TcpServer#tcpserver)
-* Telnet [Client](samples/tcp/Telnet/TelnetClient/client/Source/Main.hx#L1)/[Server](samples/tcp/Telnet/TelnetClient/Server/Source/Main.hx#L1) via [TelnetClient](../../wiki/rn.net.tcp.telnet.TelnetClient#telnetclient)/[TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver)
+* Telnet [Client](samples/tcp/Telnet/TelnetClient/client/Source/Main.hx#L1)/[Server](samples/tcp/Telnet/TelnetClient/server/Source/Main.hx#L1) via [TelnetClient](../../wiki/rn.net.tcp.telnet.TelnetClient#telnetclient)/[TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver)
   * [Telnet Client](samples/tcp/Telnet/ttyGames/client-telehack.com/Source/Main.hx#L1) for online game [Telehack.com](http://telehack.wikia.com/wiki/Telehack_Wiki)
   * [Telnet Client](samples/tcp/Telnet/ttyGames/client-avalon-rpg.com/Source/Main.hx#L1) for online game [Avalon-rpg.com](https://www.avalon-rpg.com/guide/facts/)
 
