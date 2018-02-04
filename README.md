@@ -18,9 +18,10 @@ Library for easy and convenient working with network *(alpha)*.
     * [TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver) (multithreaded)
 
 ## Plans:
-* Add more targets (currently supported Neko & C++)
-* Add UDP Client/Server
-* Add FTP Client
+* Add support & samples for more targets (currently only for Neko & C++)
+* UDP (Client/Server)
+* FTP (Client)
+* SSH (Client)
 
 ## Samples collection:
 * TCP [Client](samples/tcp/socket/client/Source/Main.hx#L1)/[Server](samples/tcp/socket/server/Source/Main.hx#L1) via [TcpSocket](../../wiki/rn.net.tcp.TcpSocket#tcpsocket)

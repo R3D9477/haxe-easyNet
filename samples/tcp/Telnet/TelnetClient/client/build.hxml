@@ -1,5 +1,5 @@
 -main Main
 -cp Source
--cp ../../../../easyNet
+-cp ../../../../../easyNet
 
 -neko Bin/Main.n

@@ -2,6 +2,7 @@ package rn.net.tcp;
 
 import sys.net.Host;
 import sys.net.Socket;
+import rn.net.EndPoint;
 import rn.net.NetworkStream;
 
 class TcpSocket {
