@@ -1,6 +1,7 @@
 # EasyNet
 
-Library for easy and convenient working with network.
+Library for easy and convenient working with network.<br/>
+Currently for [Neko](https://api.haxe.org/neko/index.html) & [C++](https://api.haxe.org/cpp/index.html).
 
 ## Installation:
 * via [haxelib](https://lib.haxe.org/)
@@ -18,12 +19,6 @@ Library for easy and convenient working with network.
   * Telnet over TCP
     * [TelnetClient](../../wiki/rn.net.tcp.telnet.TelnetClient#telnetclient)
     * [TelnetServer](../../wiki/rn.net.tcp.telnet.TelnetServer#telnetserver) (multithreaded)
-
-## Plans:
-* Add support & samples for more targets (currently only for [Neko](https://api.haxe.org/neko/index.html) & [C++](https://api.haxe.org/cpp/index.html))
-* UDP (Client/Server)
-* FTP (Client)
-* SSH (Client)
 
 ## Samples collection:
 * TCP [Client](samples/tcp/TcpSocket/client/Source/Main.hx#L1)/[Server](samples/tcp/TcpSocket/server/Source/Main.hx#L1) via [TcpSocket](../../wiki/rn.net.tcp.TcpSocket#tcpsocket)
